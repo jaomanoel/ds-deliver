@@ -1,6 +1,6 @@
-package com.example.deliver.model;
+package com.example.deliver.cores.models;
 
-import com.example.deliver.enums.OrderStatus;
+import com.example.deliver.cores.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

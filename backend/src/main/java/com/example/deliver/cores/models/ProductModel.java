@@ -1,4 +1,4 @@
-package com.example.deliver.model;
+package com.example.deliver.cores.models;
 
 import jakarta.persistence.*;
 import lombok.*;
