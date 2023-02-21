@@ -4,6 +4,8 @@ import com.example.deliver.api.mappers.OrderMapper;
 import com.example.deliver.api.mappers.ProductMapper;
 import com.example.deliver.cores.dtos.OrderDto;
 import com.example.deliver.cores.dtos.ProductDto;
+import com.example.deliver.cores.enums.OrderStatus;
+import com.example.deliver.cores.exceptions.OrderNotFoundException;
 import com.example.deliver.cores.models.ProductModel;
 import com.example.deliver.cores.repositories.OrderRepository;
 import com.example.deliver.cores.repositories.ProductRepository;
@@ -47,5 +49,19 @@ public class OrderService {
         }
 
         return mapper.toDto(model);
+    }
+
+    @Transactional
+    public OrderDto delivered(Long id){
+        var model = repository.findById(id);
+
+        if(!model.isPresent()){
+            throw new OrderNotFoundException("Order not found!");
+        }
+
+        model.get().setStatus(OrderStatus.DELIVERED);
+        repository.save(model.get());
+
+        return mapper.toDto(model.get());
     }
 }

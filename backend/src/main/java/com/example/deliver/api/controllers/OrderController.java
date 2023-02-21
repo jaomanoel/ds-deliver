@@ -3,6 +3,7 @@ package com.example.deliver.api.controllers;
 import com.example.deliver.api.services.OrderService;
 import com.example.deliver.cores.dtos.OrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +33,10 @@ public class OrderController {
                 .buildAndExpand(dto.getId()).toUri();
 
         return ResponseEntity.created(uri).body(dto);
+    }
+
+    @PutMapping("/{id}/delivered")
+    public ResponseEntity<OrderDto> delivered(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(service.delivered(id));
     }
 }
