@@ -2,11 +2,13 @@ package com.example.deliver.api.controllers;
 
 import com.example.deliver.api.services.OrderService;
 import com.example.deliver.cores.dtos.OrderDto;
+import com.example.deliver.cores.exceptions.OrderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -36,7 +38,16 @@ public class OrderController {
     }
 
     @PutMapping("/{id}/delivered")
-    public ResponseEntity<OrderDto> delivered(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(service.delivered(id));
+    public ResponseEntity<Object> delivered(@PathVariable Long id) {
+
+        OrderDto model;
+        try {
+            model = service.delivered(id);
+        } catch (OrderNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Order not found");
+        }
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(model);
     }
 }

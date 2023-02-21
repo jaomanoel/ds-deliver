@@ -51,7 +51,6 @@ public class OrderService {
         return mapper.toDto(model);
     }
 
-    @Transactional
     public OrderDto delivered(Long id){
         var model = repository.findById(id);
 
