@@ -7,7 +7,7 @@ import { styles } from './index.style'
 import { useNavigation } from '@react-navigation/native';
 import Header from '../../ui/components/Header';
 
-const index = () => {
+const Home = () => {
     const navigation = useNavigation<any>();
 
     const handleOnPress = () => {
@@ -32,4 +32,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Home;

@@ -53,13 +53,19 @@ function index() {
     const productsIds = selectedProducts.map(({id}) => ({id}));
     const payload = {
       ...orderLocation!,
-      products: productsIds
+      products: productsIds,
+      status: "PENDING"
     }
+    
 
-    await axios.post(`${URL_BASE}/orders`, payload).then((response) => {
+    console.log(orderLocation)
+
+    await axios.post(`${URL_BASE}/orders`, payload)
+    .then((response) => {
       toast.error(`Pedido enviado com sucesso! N ${response.data.id}`)
       setSelectedProducts([]);
-    }).catch(() => {
+    })
+    .catch(() => {
       toast.warning('Error ao enviar pedido! se persistir tente novamente mais tarde!')
     })
   } 

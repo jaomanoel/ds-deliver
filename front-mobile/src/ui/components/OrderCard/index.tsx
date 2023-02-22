@@ -1,22 +1,30 @@
-import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import { View, Text} from 'react-native';
+import React from 'react';
 
-import { styles } from './index.style'
+import { styles } from './index.style';
+import { OrderType } from '../../../data/types/OrderType';
+import dateFormater from '../../../data/hooks/dateFormatter';
+import currencyFormater from '../../../data/hooks/currencyFormatter';
 
-const OrderCard = () => {
+type Order = {
+    order: OrderType;
+}
+
+const OrderCard = ({order}: Order) => {
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.orderName}>Pedido 1</Text>
-                <Text style={styles.orderPrice}>R$ 39,90</Text>
+                <Text style={styles.orderName}>Pedido {order.id}</Text>
+                <Text style={styles.orderPrice}>{currencyFormater(order.totalPrice)}</Text>
             </View>
 
-            <Text style={styles.text}>Ha 30 min</Text>
+            <Text style={styles.text}>{dateFormater(order.moment)}</Text>
 
             <View style={styles.productsList}>
-                <Text style={styles.text}>Pizza Calabreza</Text>
-                <Text style={styles.text}>Pizza Quatro Queizos</Text>
-                <Text style={styles.text}>Pizza Masrguerita</Text>
+                {order.products.map(product => (
+                    <Text key={product.id} style={styles.text}>{product.name}</Text>
+                ))}
             </View>
         </View>
     )
