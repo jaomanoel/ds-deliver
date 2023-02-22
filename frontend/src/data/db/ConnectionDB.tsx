@@ -1,0 +1,1 @@
+export const URL_BASE = "https://ds-deliver-production.up.railway.app";

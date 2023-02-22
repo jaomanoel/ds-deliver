@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {Link} from "react-router-dom"
+
 import Main from "../../assets/main.svg";
 
 function index() {
@@ -15,10 +17,10 @@ function index() {
                         Escolha o seu pedido e em poucos minutos levaremos na sua porta
                     </p>
 
-                    <a className='uppercase hover:scale-105 transition-transform bg-red-500 w-[235px] p-4 text-center font-bold text-white rounded-lg tracking-[-0.015em]' href="#">Fazer pedido</a>
+                    <Link to={"/orders"} className='uppercase hover:scale-105 transition-transform bg-red-500 w-[235px] p-4 text-center font-bold text-white rounded-lg tracking-[-0.015em]'>Fazer pedido</Link>
                 </div>
 
-                <div className=''>
+                <div >
                     <img src={Main} alt="DS Delivery" />
                 </div>
             </div>

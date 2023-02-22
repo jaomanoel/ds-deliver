@@ -12,19 +12,19 @@ function index() {
 
                 <ul className='flex justify-center item-center gap-1'>
                     <li>
-                        <a href="#">
+                        <a href="#" target={"_blank"}>
                             <img src={Youtube} alt="youtube" />
                         </a>
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="#" target={"_blank"}>
                             <img src={Linkedin} alt="linkedin" />
                         </a>
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="#" target={"_blank"}>
                             <img src={Instagram} alt="instagram" />
                         </a>
                     </li>

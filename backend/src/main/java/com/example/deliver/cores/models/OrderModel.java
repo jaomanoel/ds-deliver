@@ -38,7 +38,19 @@ public class OrderModel implements Serializable {
 
     private OrderStatus status;
 
+    private Double totalPrice;
+
     @ManyToMany
     @JoinTable(name = "tb_order_product", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
     private Set<ProductModel> products = new HashSet<>();
+
+    public Double getTotalPrice(){
+        double sum = 0.0;
+
+        for (ProductModel p : products){
+            sum += p.getPrice();
+        }
+
+        return sum;
+    }
 }

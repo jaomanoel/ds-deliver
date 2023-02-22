@@ -1,15 +1,22 @@
+import { ToastContainer } from 'react-toastify';
+import { RouterProvider }from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+
+import { routers } from "./routers";
+
 import Header from "./ui/components/Header";
 import Footer from "./ui/components/Footer";
 
-import Home from "./pages/Home";
-
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Home />
-      <Footer />
-    </div>
+    <>
+      <ToastContainer className='absolute' />
+      <div className="App ">
+        <Header />
+        <RouterProvider router={routers} />
+        <Footer />
+      </div>
+    </>
   )
 }
 

@@ -4,5 +4,6 @@ CREATE TABLE tb_order (
     latitude DOUBLE PRECISION,
     longitude DOUBLE PRECISION,
     moment TIMESTAMP,
-    status SMALLINT
+    status SMALLINT,
+    total_price DOUBLE PRECISION
 );

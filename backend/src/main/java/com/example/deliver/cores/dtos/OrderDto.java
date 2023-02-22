@@ -23,5 +23,6 @@ public class OrderDto implements Serializable {
     private Double longitude;
     private Instant moment;
     private OrderStatus status;
+    private Double totalPrice;
     private List<ProductDto> products = new ArrayList<>();
 }
