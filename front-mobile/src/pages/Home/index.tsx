@@ -4,10 +4,19 @@ import { RectButton } from 'react-native-gesture-handler';
 import React from 'react'
 
 import { styles } from './index.style'
+import { useNavigation } from '@react-navigation/native';
+import Header from '../../ui/components/Header';
 
 const index = () => {
+    const navigation = useNavigation<any>();
+
+    const handleOnPress = () => {
+        navigation.navigate('Orders');
+    }
+
     return (
         <>
+            <Header />
             <View style={styles.container}>
                 <Image source={require('../../../assets/deliveryman.png')} />
                 <Text style={styles.title}>Aconpanhe os pedidos e entrege no prazo!</Text>
@@ -15,7 +24,7 @@ const index = () => {
             </View>
 
             <View style={styles.footer}>
-                <RectButton style={styles.button}>
+                <RectButton style={styles.button} onPress={handleOnPress}>
                     <Text style={styles.buttonText}>VER PEDIDOS</Text>
                 </RectButton>
             </View>

@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Header from "./src/ui/components/Header";
-import Home from "./src/pages/Home";
+import Routers from './src/Routers';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -18,8 +18,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header />
-      <Home />
+      <Routers />
       <StatusBar style="auto" />
     </View>
   );
