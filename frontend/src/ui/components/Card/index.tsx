@@ -12,7 +12,7 @@ function index({item, selected}: Props ) {
     return (
         <>
             {selected ? (
-                <div className='rounded-lg border-4 border-green-700 border-solid shadow-md p-2 w-full h-full  bg-slate-50'>
+                <div className='rounded-lg border-4 border-green-700 border-solid shadow-md p-2 w-full h-full bg-slate-50'>
                     <h3 className='text-center text-green-700 pb-4 font-bold'>{item.name}</h3>
 
                     <img className='mb-4 w-full rounded-lg' src={item.imageUri} alt={item.name} />
